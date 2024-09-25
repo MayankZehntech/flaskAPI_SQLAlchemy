@@ -11,4 +11,4 @@ app = create_app()
 
 if __name__ == '__main__':
     print("Database URI:", os.getenv('DATABASE_URL'))
-    app.run(debug=True)
+    app.run()
