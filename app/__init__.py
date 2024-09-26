@@ -1,8 +1,8 @@
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy 
 
-from config import Config
-# from flask_migrate import Migrate
+from .config.config import Config
+
 
 
 
@@ -22,8 +22,8 @@ def create_app():
         db.create_all()  # This will create tables based on your models
 
     # Import routes (after app is created)
-    from .routes import main
-    app.register_blueprint(main)
+    from .views.routes import task_bp
+    app.register_blueprint(task_bp)
     # Migrate(app, db)
 
     
