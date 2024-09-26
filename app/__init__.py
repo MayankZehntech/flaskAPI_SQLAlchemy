@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 
 from .config.config import Config
-from .handlers.error_handler import handle_400_error ,handle_404_error
+from .services.validation_service import handle_400_error ,handle_404_error
 
 
 
