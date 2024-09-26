@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 
 from .config.config import Config
+from .handlers.error_handler import handle_400_error ,handle_404_error
 
 
 
@@ -25,6 +26,9 @@ def create_app():
     from .views.routes import task_bp
     app.register_blueprint(task_bp)
     # Migrate(app, db)
+
+    app.register_error_handler(404, handle_404_error)
+    app.register_error_handler(400, handle_400_error)
 
     
     return app
